@@ -1,7 +1,8 @@
 from miranda import upnp, msearch
 
-conn = upnp()
-msearch(0, 0, conn, 2)
+conn = upnp(False, False, None, [])
+conn.TIMEOUT = 10  # wait for 10 seconds
+msearch(0, 0, conn)
 
 SWITCHES = []
 
