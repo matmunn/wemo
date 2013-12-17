@@ -29,7 +29,7 @@ def _send(action, args=None):
     device_name = 'controllee'
     service_name = 'basicevent'
     controlURL = host_info['proto'] + host_info['name']
-    controlURL2 = hostInfo['deviceList'][device_name]['services'][service_name]['controlURL']
+    controlURL2 = host_info['deviceList'][device_name]['services'][service_name]['controlURL']
     if not controlURL.endswith('/') and not controlURL2.startswith('/'):
         controlURL += '/'
     controlURL += controlURL2
