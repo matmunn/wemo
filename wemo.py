@@ -1,12 +1,13 @@
 from miranda import upnp, msearch
 
 conn = upnp(False, False, None, [])
-conn.TIMEOUT = 10  # wait for 10 seconds
-msearch(0, 0, conn)
+conn.TIMEOUT = 2  # wait for 2 seconds
+msearch(4, [0, 'Belkin', 'service', 'basicevent'], conn)
+#msearch(4, [0, 'Belkin', 'device', 'controllee'], conn)
 
 SWITCHES = []
 
-# populate all the host info, for every upnp device on the network
+# populate all the host info, for every uPNP device on the network
 for index in conn.ENUM_HOSTS:
     hostInfo = conn.ENUM_HOSTS[index]
     if hostInfo['dataComplete'] == False:
@@ -70,3 +71,7 @@ def off():
     resp = _send('SetBinaryState', {'BinaryState': (0, 'Boolean')})
     tagValue = conn.extractSingleTag(resp, 'BinaryState')
     return True if tagValue in ['0', 'Error'] else False
+
+def toggle():
+	isOn = get()
+	off() if isOn else on()
