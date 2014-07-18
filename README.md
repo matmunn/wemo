@@ -1,3 +1,15 @@
+========
+WeMo GUI
+========
+
+This is my rough attempt at forming some sort of GUI for PC that will be able to remotely control Belkin WeMo switches. It's based on ngraef/wemo, which itself is a fork
+of issackelly/wemo.
+
+In the future I want to extend the functionality so that the GUI/wemo scripts can control multiple devices. I'll have to get my hands on another switch for testing though.
+
+
+The original readme is below.
+
 ============
 WeMo Hacking
 ============
